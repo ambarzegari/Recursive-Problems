@@ -34,6 +34,19 @@ void PrintBoard(vector<vector<char>> Board)
     }
 }
 
+int Queen_Colmn_In_Row(vector<vector<char>> Board, int row)
+{
+    int queen_colmn_in_row;
+
+    for (int col = 0; col < SIZE; col++)
+    {
+        if (Board[row][col] == 'Q')
+        {
+            return col;
+        }
+    }
+}
+
 int main()
 {
     vector<vector<char>> Board(SIZE);
