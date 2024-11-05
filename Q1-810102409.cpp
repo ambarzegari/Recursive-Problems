@@ -47,6 +47,23 @@ int Queen_Colmn_In_Row(vector<vector<char>> Board, int row)
     }
 }
 
+bool Threat(vector<vector<char>> Board, int row, int col)
+{
+
+    int queen_colmn_in_row;
+
+    for (int i = 0; i < row; i++)
+    {
+        queen_colmn_in_row = Queen_Colmn_In_Row(Board, i);
+
+        if (queen_colmn_in_row == col || i == row || abs(queen_colmn_in_row - col) == abs(i - row))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main()
 {
     vector<vector<char>> Board(SIZE);
