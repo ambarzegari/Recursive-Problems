@@ -64,13 +64,46 @@ bool Threat(vector<vector<char>> Board, int row, int col)
     return true;
 }
 
+bool BeingObstacle(vector<vector<char>> Board, int row, int col)
+{
+    if (Board[row][col] != '*')
+    {
+        return true;
+    }
+    return false;
+}
+
+void Solve(vector<vector<char>> Board, int row, int &solutions_count)
+{
+    if (row == SIZE)
+    {
+        PrintBoard(Board);
+        solutions_count++;
+        cout << solutions_count << endl;
+        return;
+    }
+
+    for (int col = 0; col < SIZE; col++)
+    {
+        if (Threat(Board, row, col) && BeingObstacle(Board, row, col))
+        {
+            Board[row][col] = 'Q';
+            Solve(Board, row + 1, solutions_count);
+            Board[row][col] = '-';
+        }
+    }
+}
+
 int main()
 {
+    int solutions_count = 0;
     vector<vector<char>> Board(SIZE);
 
     InputBoard(Board);
 
-    PrintBoard(Board);
+    Solve(Board, 0, solutions_count);
+
+    cout << solutions_count;
 
     return 1;
 }
