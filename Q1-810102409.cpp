@@ -22,18 +22,6 @@ void InputBoard(vector<vector<char>> &Board)
     }
 }
 
-void PrintBoard(vector<vector<char>> Board)
-{
-    for (int row = 0; row < SIZE; row++)
-    {
-        for (int col = 0; col < SIZE; col++)
-        {
-            cout << Board[row][col] << " ";
-        }
-        cout << endl;
-    }
-}
-
 int Queen_Colmn_In_Row(vector<vector<char>> Board, int row)
 {
     int queen_colmn_in_row;
@@ -45,11 +33,11 @@ int Queen_Colmn_In_Row(vector<vector<char>> Board, int row)
             return col;
         }
     }
+    return 0;
 }
 
 bool Threat(vector<vector<char>> Board, int row, int col)
 {
-
     int queen_colmn_in_row;
 
     for (int i = 0; i < row; i++)
@@ -77,9 +65,7 @@ void Solve(vector<vector<char>> Board, int row, int &solutions_count)
 {
     if (row == SIZE)
     {
-        PrintBoard(Board);
         solutions_count++;
-        cout << solutions_count << endl;
         return;
     }
 
