@@ -83,9 +83,6 @@ int main()
 
     results = UniqueAnswers(results);
 
-    for (int i = 0; i < results.size(); i++)
-    {
-        cout << results[i] << endl;
-    }
+    cout << results.size();
     
 }
