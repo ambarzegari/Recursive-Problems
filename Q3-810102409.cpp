@@ -21,15 +21,15 @@ int Minsweet(vector<int> num_of_student, int college_num = 0)
     {
         return 0;
     }
-    
+
     if (college_num == num_of_student.size() - 2)
     {
-        return abs(num_of_student[college_num]-num_of_student[college_num + 1]);
+        return abs(num_of_student[college_num] - num_of_student[college_num + 1]);
     }
 
     int cost_1 = abs(num_of_student[college_num] - num_of_student[college_num + 1]) + Minsweet(num_of_student, college_num + 1);
     int cost_2 = abs(num_of_student[college_num] - num_of_student[college_num + 2]) + Minsweet(num_of_student, college_num + 2);
-    
+
     return min(cost_1, cost_2);
 }
 
