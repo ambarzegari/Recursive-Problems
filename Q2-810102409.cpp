@@ -25,6 +25,7 @@ int Calculate(int left, char op, int right)
     case '*':
         return left * right;
     }
+    return 0;
 }
 
 vector<int> SolveProblem(string phrase)
@@ -53,6 +54,7 @@ vector<int> SolveProblem(string phrase)
             }
         }
     }
+    return result;
 }
 
 int main()
@@ -64,4 +66,10 @@ int main()
     Input(number_of_operators, phrase);
 
     results = SolveProblem(phrase);
+
+    for (int i = 0; i < results.size(); i++)
+    {
+        cout << results[i] << endl;
+    }
+    
 }
