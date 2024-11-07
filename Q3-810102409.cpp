@@ -15,7 +15,7 @@ void Input(int &number_of_college, vector<int> &number_of_student_in_college)
     }
 }
 
-int Minsweet(vector<int> num_of_student, int college_num)
+int Minsweet(vector<int> num_of_student, int college_num = 0)
 {
     if (college_num == num_of_student.size() - 1)
     {
@@ -40,9 +40,7 @@ int main()
 
     Input(number_of_college, number_of_student_in_college);
 
-    for (int i = 0; i < number_of_college; i++)
-    {
-        cout << i+1 << " : " << number_of_student_in_college[i] << endl;
-    }
-    
+    cout << Minsweet(number_of_student_in_college);
+
+    return 0;
 }
