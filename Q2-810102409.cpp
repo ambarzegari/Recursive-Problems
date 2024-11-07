@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
 
@@ -57,6 +58,19 @@ vector<int> SolveProblem(string phrase)
     return result;
 }
 
+vector<int> UniqueAnswers(vector<int> results)
+{
+    vector<int> unique_answers;
+    for (int i = 0; i < results.size(); i++)
+    {
+        if (find(unique_answers.begin(), unique_answers.end(), results[i]) == unique_answers.end())
+        {
+            unique_answers.push_back(results[i]);
+        }
+    }
+    return unique_answers;
+}
+
 int main()
 {
     int number_of_operators;
@@ -66,6 +80,8 @@ int main()
     Input(number_of_operators, phrase);
 
     results = SolveProblem(phrase);
+
+    results = UniqueAnswers(results);
 
     for (int i = 0; i < results.size(); i++)
     {
