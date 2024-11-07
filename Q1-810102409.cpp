@@ -6,7 +6,6 @@ using namespace std;
 
 const int SIZE = 8;
 
-
 void InputBoard(vector<vector<char>> &Board)
 {
     string input;
